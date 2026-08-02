@@ -1,0 +1,6 @@
+{
+  "name": "YBGP - Your Business Growth Partner",
+  "description": "Premium business consulting firm helping entrepreneurs, startups, and businesses launch, optimize, and scale from idea to a profitable business.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
