@@ -23,8 +23,8 @@ export const ServicePage: React.FC<ServicePageProps> = ({ page }) => {
     .slice(0, 3);
 
   const handleOpenConsultation = () => {
-    const whatsappUrl = `https://wa.me/${SITE_DATA.phoneRaw}?text=${encodeURIComponent(SITE_DATA.whatsappPrefilledMessage)}`;
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    const formUrl = SITE_DATA.googleFormUrl || `https://wa.me/${SITE_DATA.phoneRaw}?text=${encodeURIComponent(SITE_DATA.whatsappPrefilledMessage)}`;
+    window.open(formUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -45,7 +45,6 @@ export const ServicePage: React.FC<ServicePageProps> = ({ page }) => {
               <div className="h-[2px] w-8 bg-[#C89B2B]" />
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#C89B2B]">YBGP SERVICES</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0E2B22] font-heading tracking-tight leading-tight">{page.name}</h1>
             <p className="mt-7 text-lg sm:text-xl text-[#1E1E1E]/75 leading-relaxed max-w-3xl">{page.intro}</p>
             <a href="#contact" className="mt-8 inline-flex items-center gap-2 bg-[#0E2B22] hover:bg-[#164537] text-white px-7 py-3.5 rounded-full font-semibold transition-colors">
               Book Free Consultation <ArrowRight className="w-4 h-4" aria-hidden="true" />

@@ -57,6 +57,7 @@ export const SITE_DATA = {
   location: "Noida, Uttar Pradesh",
   
   whatsappPrefilledMessage: "Hello Shubhanshu,\nI visited www.ybgp.in and would like to discuss my business.",
+  googleFormUrl: "https://docs.google.com/forms/",
   
   hero: {
     eyebrow: "YOUR BUSINESS GROWTH PARTNER",
@@ -70,7 +71,7 @@ export const SITE_DATA = {
   },
 
   about: {
-    eyebrow: "01 — ABOUT",
+    eyebrow: "ABOUT",
     title: "Who We Are",
     paragraph1: "YBGP works as an execution-focused business consulting partner — helping entrepreneurs transform ideas into profitable businesses through strategy, branding, technology and business growth.",
     paragraph2: "We don't just advise. We build alongside you — turning plans into measurable outcomes with the discipline of a global consulting firm and the agility of a hands-on partner.",
@@ -91,7 +92,7 @@ export const SITE_DATA = {
   },
 
   services: {
-    eyebrow: "02 — SERVICES",
+    eyebrow: "SERVICES",
     title: "Everything your business needs, under one partner.",
     subtitle: "Six focused practices that cover the full journey — from the first idea to a scaling, profitable business.",
     items: [
@@ -135,7 +136,7 @@ export const SITE_DATA = {
   },
 
   process: {
-    eyebrow: "03 — OUR PROCESS",
+    eyebrow: "OUR PROCESS",
     title: "A disciplined path from idea to scale.",
     steps: [
       {
@@ -177,7 +178,7 @@ export const SITE_DATA = {
   },
 
   whyChooseUs: {
-    eyebrow: "04 — WHY CHOOSE US",
+    eyebrow: "WHY CHOOSE US",
     title: "The reasons founders choose to grow with YBGP.",
     items: [
       {
@@ -209,7 +210,7 @@ export const SITE_DATA = {
   },
 
   contact: {
-    eyebrow: "05 — CONTACT",
+    eyebrow: "CONTACT",
     title: "Let's build your next chapter.",
     subtitle: "Book a free consultation and get a clear, honest view of where your business can go — and how to get there.",
     primaryCta: "Schedule Consultation →"

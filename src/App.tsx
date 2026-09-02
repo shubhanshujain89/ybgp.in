@@ -13,24 +13,65 @@ import { getServicePage } from './data/servicePages';
 import { ServicePage } from './components/ServicePage';
 import { setPageMetadata } from './seo';
 import { useEffect } from 'react';
+import { SectionPage } from './components/SectionPage';
 
 export default function App() {
   const routeSlug = window.location.pathname.replace(/^\/+|\/+$/g, '');
   const servicePage = getServicePage(routeSlug);
   const isHome = routeSlug === '' || routeSlug === 'index.html';
+  const sectionRoutes = {
+    about: {
+      title: 'About YBGP | Your Business Growth Partner',
+      description: 'Learn how YBGP helps entrepreneurs and growing businesses turn ideas into practical strategy, execution and sustainable growth.'
+    },
+    services: {
+      title: 'Business Consulting Services | YBGP',
+      description: 'Explore YBGP services for business strategy, planning, compliance, website development, branding, marketing and growth.'
+    },
+    process: {
+      title: 'Our Business Growth Process | YBGP',
+      description: 'See how YBGP guides businesses from idea and planning through execution, growth and scale.'
+    },
+    contact: {
+      title: 'Contact YBGP | Business Growth Consultant',
+      description: 'Contact Shubhanshu Jain at YBGP to discuss business strategy, planning, execution and growth support.'
+    },
+    'why-choose-us': {
+      title: 'Why Choose YBGP | Business Growth Partner',
+      description: 'See why founders choose YBGP for execution-focused business strategy, practical support and long-term growth partnership.'
+    }
+  } as const;
+  const sectionPage = sectionRoutes[routeSlug as keyof typeof sectionRoutes];
 
   useEffect(() => {
-    if (servicePage || isHome) {
+    if (servicePage || sectionPage || isHome) {
       if (isHome) setPageMetadata();
       return;
     }
 
     document.title = 'Page Not Found | YBGP';
     document.head.querySelector('meta[name="robots"]')?.setAttribute('content', 'noindex');
-  }, [isHome, servicePage]);
+  }, [isHome, sectionPage, servicePage]);
 
   if (servicePage) {
     return <ServicePage page={servicePage} />;
+  }
+
+  if (sectionPage) {
+    const handleOpenConsultation = () => {
+      const whatsappUrl = `https://wa.me/${SITE_DATA.phoneRaw}?text=${encodeURIComponent(SITE_DATA.whatsappPrefilledMessage)}`;
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    };
+
+    return (
+      <SectionPage slug={routeSlug as keyof typeof sectionRoutes} title={sectionPage.title} description={sectionPage.description} onOpenConsultationModal={handleOpenConsultation}>
+        {routeSlug === 'about' && <About />}
+        {routeSlug === 'services' && <Services />}
+        {routeSlug === 'process' && <Process />}
+        {routeSlug === 'why-choose-us' && <WhyChooseUs />}
+        {routeSlug === 'contact' && <Contact onOpenConsultationModal={handleOpenConsultation} />}
+      </SectionPage>
+    );
   }
 
   if (!isHome) {
@@ -44,10 +85,10 @@ export default function App() {
   }
 
   const handleOpenConsultation = () => {
-    const whatsappUrl = `https://wa.me/${SITE_DATA.phoneRaw}?text=${encodeURIComponent(
+    const formUrl = SITE_DATA.googleFormUrl || `https://wa.me/${SITE_DATA.phoneRaw}?text=${encodeURIComponent(
       SITE_DATA.whatsappPrefilledMessage
     )}`;
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    window.open(formUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -58,11 +99,6 @@ export default function App() {
       {/* Main One-Page Section Architecture */}
       <main className="flex-grow">
         <Hero onOpenConsultationModal={handleOpenConsultation} />
-        <About />
-        <Services />
-        <Process />
-        <WhyChooseUs />
-        <Contact onOpenConsultationModal={handleOpenConsultation} />
       </main>
 
       {/* Corporate Footer */}

@@ -12,6 +12,11 @@ const seoRouteSlugs = [
   'website-app-development',
   'branding-digital-marketing',
   'business-growth-scaling',
+  'about',
+  'services',
+  'process',
+  'contact',
+  'why-choose-us',
 ];
 
 const generateSeoRouteEntrypoints = () => ({

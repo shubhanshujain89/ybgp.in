@@ -47,28 +47,15 @@ export const Contact: React.FC<ContactProps> = ({ onOpenConsultationModal }) => 
     <section id="contact" aria-labelledby="contact-heading" className="py-20 md:py-28 bg-[#FBFBFB] border-t border-[#F0F0F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Eyebrow & Header */}
+        {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-3 mb-4 justify-center"
-          >
-            <div className="h-[2px] w-8 bg-[#C89B2B]" />
-            <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#C89B2B]">
-              {SITE_DATA.contact.eyebrow}
-            </span>
-          </motion.div>
-
-          <motion.h2 id="contact-heading"
+          <motion.h2
+            id="contact-heading"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl font-extrabold text-[#0E2B22] font-heading tracking-tight mb-4"
+            className="mb-4 text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0E2B22] font-heading tracking-tight"
           >
             {SITE_DATA.contact.title}
           </motion.h2>

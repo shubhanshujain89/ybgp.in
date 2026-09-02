@@ -11,7 +11,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultationModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const homePath = window.location.pathname === '/' || window.location.pathname === '/index.html' ? '' : '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,30 +38,35 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenConsultationModal }) => {
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: `${homePath}#home`, id: 'home' },
-    { label: 'About', href: `${homePath}#about`, id: 'about' },
-    { label: 'Services', href: `${homePath}#services`, id: 'services' },
-    { label: 'Process', href: `${homePath}#process`, id: 'process' },
-    { label: 'Contact', href: `${homePath}#contact`, id: 'contact' },
+    { label: 'Home', href: '/', id: 'home' },
+    { label: 'About', href: '/about/', id: 'about' },
+    { label: 'Services', href: '/services/', id: 'services' },
+    { label: 'Process', href: '/process/', id: 'process' },
+    { label: 'Why Choose Us', href: '/why-choose-us/', id: 'why-choose-us' },
+    { label: 'Contact', href: '/contact/', id: 'contact' },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-[#E9E9E9] py-3.5 shadow-sm'
-          : 'bg-white py-5 border-b border-[#F0F0F0]'
+          ? 'bg-white/95 backdrop-blur-md border-b border-[#E9E9E9] py-1 shadow-sm'
+          : 'bg-white py-1.5 border-b border-[#F0F0F0]'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-none mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href={`${homePath}#home`} className="focus:outline-none">
-            <Logo size="md" />
+          <a href="/" className="flex items-center gap-2.5 focus:outline-none">
+            <Logo size="sm" showSubtitle={false} />
+            <div className="leading-none text-left">
+              <div className="text-[0.72rem] font-bold tracking-[0.08em] text-[#0E2B22]">Your Business Growth Partner</div>
+              <div className="mt-0.5 text-[0.52rem] font-medium tracking-[0.08em] text-[#6A6A6A]">From Idea to a Profitable Business</div>
+            </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (

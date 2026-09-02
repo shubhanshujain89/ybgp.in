@@ -2,10 +2,15 @@ import { SITE_DATA } from './data/siteData';
 import { ServicePageData } from './data/servicePages';
 
 export const SITE_URL = 'https://www.ybgp.in/';
+export interface SitePageData {
+  slug: string;
+  title: string;
+  description: string;
+}
 
 const homeDescription = 'YBGP helps entrepreneurs, startups and businesses in Noida and Delhi NCR turn ideas into profitable businesses through strategy, planning, compliance, technology, branding and growth support.';
 
-export const setPageMetadata = (page?: ServicePageData) => {
+export const setPageMetadata = (page?: ServicePageData | SitePageData) => {
   const title = page?.title ?? 'Business Consultant in Noida & Delhi NCR | YBGP';
   const description = page?.description ?? homeDescription;
   const url = page ? `${SITE_URL}${page.slug}/` : SITE_URL;
@@ -50,7 +55,7 @@ export const setPageMetadata = (page?: ServicePageData) => {
     schema.type = 'application/ld+json';
     document.head.appendChild(schema);
   }
-  schema.textContent = JSON.stringify(page ? [{
+  schema.textContent = JSON.stringify(page && 'name' in page ? [{
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: page.name,
