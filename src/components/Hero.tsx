@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { SITE_DATA } from '../data/siteData';
 
 interface HeroProps {
@@ -7,6 +7,8 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenConsultationModal }) => {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section id="home" aria-labelledby="hero-heading" className="relative pt-24 pb-16 md:pt-28 md:pb-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,9 +19,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultationModal }) => {
 
             {/* Main Title */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.6, delay: 0.1 }}
             >
               <h1 id="hero-heading" className="text-[3.2rem] sm:text-[4.2rem] xl:text-[5.3rem] font-extrabold text-[#0E2B22] font-heading tracking-tight leading-[1.02]">
                 {SITE_DATA.hero.titleLine1}<br />
@@ -32,9 +34,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultationModal }) => {
 
             {/* Subheading */}
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.6, delay: 0.2 }}
               className="text-[1.75rem] sm:text-[2.15rem] font-bold text-[#0E2B22] font-heading"
             >
               {SITE_DATA.hero.subheading}
@@ -42,9 +44,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultationModal }) => {
 
             {/* Description */}
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.6, delay: 0.3 }}
               className="text-[1.05rem] sm:text-[1.2rem] text-[#1E1E1E]/75 max-w-xl leading-relaxed"
             >
               {SITE_DATA.hero.description}
@@ -52,9 +54,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultationModal }) => {
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.6, delay: 0.4 }}
               className="flex flex-wrap items-center gap-4 pt-4"
             >
               <button
@@ -76,9 +78,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultationModal }) => {
           {/* Right Column: Offer Card + Floating Brand Card */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-end gap-6">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={prefersReducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.35 }}
+              transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.6, delay: 0.35 }}
               className="w-full max-w-[620px] rounded-[32px] border border-[#E7E7E7] bg-[#F3F3F3] p-5 sm:p-6 lg:p-8 shadow-[0_22px_48px_rgba(14,43,34,0.08)]"
             >
               <div className="mb-5">
@@ -120,9 +122,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultationModal }) => {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              initial={prefersReducedMotion ? { opacity: 1, scale: 1, y: 0 } : { opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+              transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.7, delay: 0.2 }}
               className="relative w-full max-w-md"
             >
               {/* Outer soft shadow container */}

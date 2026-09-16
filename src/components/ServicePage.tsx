@@ -46,7 +46,12 @@ export const ServicePage: React.FC<ServicePageProps> = ({ page }) => {
               <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-[#C89B2B]">YBGP SERVICES</span>
             </div>
             <p className="mt-2 text-lg sm:text-xl text-[#1E1E1E]/75 leading-relaxed max-w-3xl">{page.intro}</p>
-            <a href="#contact" className="mt-4 inline-flex items-center gap-2 bg-[#0E2B22] hover:bg-[#164537] text-white px-7 py-3.5 rounded-full font-semibold transition-colors">
+            <a
+              href={SITE_DATA.googleFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 bg-[#0E2B22] hover:bg-[#164537] text-white px-7 py-3.5 rounded-full font-semibold transition-colors"
+            >
               Book Free Consultation <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
           </div>
@@ -89,7 +94,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ page }) => {
           <CheckCircle2 className="w-10 h-10 text-[#C89B2B] mx-auto mb-4" aria-hidden="true" />
           <h2 id="service-cta-heading" className="text-3xl sm:text-4xl font-extrabold font-heading">Ready to make the next move?</h2>
           <p className="mt-4 text-white/75 text-lg">Talk with {SITE_DATA.owner} about the priorities, constraints and opportunities in your business.</p>
-          <a href={`https://wa.me/${SITE_DATA.phoneRaw}?text=${encodeURIComponent(SITE_DATA.whatsappPrefilledMessage)}`} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 bg-[#C89B2B] hover:bg-[#D5AA3E] text-[#0E2B22] px-7 py-3.5 rounded-full font-semibold transition-colors">
+          <a href={SITE_DATA.googleFormUrl} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 bg-[#C89B2B] hover:bg-[#D5AA3E] text-[#0E2B22] px-7 py-3.5 rounded-full font-semibold transition-colors">
             Start a Conversation <ArrowRight className="w-4 h-4" aria-hidden="true" />
           </a>
         </div>

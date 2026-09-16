@@ -62,6 +62,38 @@ export const About: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        <div className="mt-16">
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-8 text-2xl sm:text-3xl font-extrabold text-[#0E2B22] font-heading tracking-tight"
+          >
+            Frequently Asked Questions
+          </motion.h3>
+
+          <div className="grid gap-4">
+            {SITE_DATA.faq.map((item, idx) => (
+              <motion.div
+                key={item.question}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.08 * idx }}
+                className="rounded-[22px] border border-[#EDEDED] bg-[#F9F9F9] p-5 sm:p-6"
+              >
+                <h4 className="text-base sm:text-lg font-bold text-[#0E2B22] font-heading">
+                  {item.question}
+                </h4>
+                <p className="mt-2 text-sm sm:text-base text-[#1E1E1E]/75 leading-relaxed">
+                  {item.answer}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

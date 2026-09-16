@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 
 interface RevealProps {
   children: React.ReactNode;
@@ -18,6 +18,8 @@ export const Reveal: React.FC<RevealProps> = ({
   duration = 0.6,
   className = ''
 }) => {
+  const prefersReducedMotion = useReducedMotion();
+
   const getVariants = () => {
     switch (variant) {
       case 'fadeIn':
@@ -53,10 +55,10 @@ export const Reveal: React.FC<RevealProps> = ({
     <div style={{ width }} className={className}>
       <motion.div
         variants={getVariants()}
-        initial="hidden"
-        whileInView="visible"
+        initial={prefersReducedMotion ? { opacity: 1, x: 0, y: 0 } : 'hidden'}
+        whileInView={prefersReducedMotion ? { opacity: 1, x: 0, y: 0 } : 'visible'}
         viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
+        transition={prefersReducedMotion ? { duration: 0 } : { duration, delay, ease: [0.22, 1, 0.36, 1] }}
       >
         {children}
       </motion.div>

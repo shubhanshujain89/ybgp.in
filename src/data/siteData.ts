@@ -73,8 +73,8 @@ export const SITE_DATA = {
   about: {
     eyebrow: "ABOUT",
     title: "Who We Are",
-    paragraph1: "YBGP works as an execution-focused business consulting partner — helping entrepreneurs transform ideas into profitable businesses through strategy, branding, technology and business growth.",
-    paragraph2: "We don't just advise. We build alongside you — turning plans into measurable outcomes with the discipline of a global consulting firm and the agility of a hands-on partner.",
+    paragraph1: "YBGP is a business consulting partner for founders, startups and growing companies in Noida, Delhi NCR and nearby business hubs who want practical support for strategy, execution, brand growth and business development.",
+    paragraph2: "We don't just advise. We work alongside you to turn ideas into profitable businesses with disciplined planning, business registration support, digital execution, marketing strategy and scalable systems that fit the realities of fast-moving Indian businesses.",
     stats: [
       {
         value: "Idea",
@@ -91,10 +91,33 @@ export const SITE_DATA = {
     ]
   },
 
+  faq: [
+    {
+      question: "Why do businesses in Noida and Delhi NCR choose YBGP?",
+      answer: "Because YBGP combines strategy, execution support, compliance guidance and digital growth thinking in one partner. This helps founders move faster without losing clarity or control."
+    },
+    {
+      question: "Does YBGP help startups and new businesses?",
+      answer: "Yes. YBGP works with entrepreneurs and early-stage businesses that need a clearer roadmap, stronger positioning, website and growth foundations, and practical advice that supports sustainable momentum."
+    },
+    {
+      question: "Can YBGP help with business registration and compliance?",
+      answer: "Yes. YBGP supports founders with registration, licensing and compliance coordination so the business can start and scale with a cleaner operational base."
+    },
+    {
+      question: "Do you help with websites and branding?",
+      answer: "Yes. YBGP supports business website development, digital presentation, branding and marketing strategy so the company looks credible and converts attention into enquiries."
+    },
+    {
+      question: "What kind of businesses does YBGP work with?",
+      answer: "YBGP works with service businesses, startups, founders, and growth-stage companies that need clearer direction, better systems, stronger online presence, and a plan for sustainable growth."
+    }
+  ],
+
   services: {
     eyebrow: "SERVICES",
     title: "Everything your business needs, under one partner.",
-    subtitle: "Six focused practices that cover the full journey — from the first idea to a scaling, profitable business.",
+    subtitle: "From business strategy consulting in Noida to branding, digital marketing, compliance and website development in Delhi NCR, YBGP helps founders build and grow businesses with structure and momentum.",
     items: [
       {
         id: "business-strategy",

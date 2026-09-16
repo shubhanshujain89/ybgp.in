@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Services } from './components/Services';
-import { Process } from './components/Process';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { SITE_DATA } from './data/siteData';
 import { getServicePage } from './data/servicePages';
-import { ServicePage } from './components/ServicePage';
 import { setPageMetadata } from './seo';
-import { useEffect } from 'react';
-import { SectionPage } from './components/SectionPage';
+
+const About = lazy(() => import('./components/About').then((module) => ({ default: module.About })));
+const Services = lazy(() => import('./components/Services').then((module) => ({ default: module.Services })));
+const Process = lazy(() => import('./components/Process').then((module) => ({ default: module.Process })));
+const WhyChooseUs = lazy(() => import('./components/WhyChooseUs').then((module) => ({ default: module.WhyChooseUs })));
+const Contact = lazy(() => import('./components/Contact').then((module) => ({ default: module.Contact })));
+const ServicePage = lazy(() => import('./components/ServicePage').then((module) => ({ default: module.ServicePage })));
+const SectionPage = lazy(() => import('./components/SectionPage').then((module) => ({ default: module.SectionPage })));
 
 export default function App() {
   const routeSlug = window.location.pathname.replace(/^\/+|\/+$/g, '');
@@ -54,7 +54,11 @@ export default function App() {
   }, [isHome, sectionPage, servicePage]);
 
   if (servicePage) {
-    return <ServicePage page={servicePage} />;
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-white" /> }>
+        <ServicePage page={servicePage} />
+      </Suspense>
+    );
   }
 
   if (sectionPage) {
@@ -64,13 +68,15 @@ export default function App() {
     };
 
     return (
-      <SectionPage slug={routeSlug as keyof typeof sectionRoutes} title={sectionPage.title} description={sectionPage.description} onOpenConsultationModal={handleOpenConsultation}>
-        {routeSlug === 'about' && <About />}
-        {routeSlug === 'services' && <Services />}
-        {routeSlug === 'process' && <Process />}
-        {routeSlug === 'why-choose-us' && <WhyChooseUs />}
-        {routeSlug === 'contact' && <Contact onOpenConsultationModal={handleOpenConsultation} />}
-      </SectionPage>
+      <Suspense fallback={<div className="min-h-screen bg-white" /> }>
+        <SectionPage slug={routeSlug as keyof typeof sectionRoutes} title={sectionPage.title} description={sectionPage.description} onOpenConsultationModal={handleOpenConsultation}>
+          {routeSlug === 'about' && <About />}
+          {routeSlug === 'services' && <Services />}
+          {routeSlug === 'process' && <Process />}
+          {routeSlug === 'why-choose-us' && <WhyChooseUs />}
+          {routeSlug === 'contact' && <Contact onOpenConsultationModal={handleOpenConsultation} />}
+        </SectionPage>
+      </Suspense>
     );
   }
 

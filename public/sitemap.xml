@@ -2,20 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.ybgp.in/</loc>
-    <lastmod>2026-09-02</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  <url><loc>https://www.ybgp.in/business-consultant-noida/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.ybgp.in/business-strategy-consulting/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ybgp.in/business-planning/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ybgp.in/business-registration-compliance/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ybgp.in/website-app-development/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ybgp.in/branding-digital-marketing/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ybgp.in/business-growth-scaling/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ybgp.in/about/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ybgp.in/services/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.ybgp.in/process/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ybgp.in/contact/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://www.ybgp.in/why-choose-us/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ybgp.in/business-consultant-noida/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/business-consultant-in-noida/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/startup-consultant-delhi-ncr/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/website-development-company-gurugram/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/digital-marketing-agency-ghaziabad/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/business-consultant-delhi/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/business-consultant-gurugram/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/business-consultant-ghaziabad/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/business-strategy-consulting/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/business-planning/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/business-registration-compliance/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/website-app-development/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/branding-digital-marketing/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/business-growth-scaling/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/about/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ybgp.in/services/</loc><lastmod>2026-09-16</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.ybgp.in/process/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ybgp.in/contact/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.ybgp.in/why-choose-us/</loc><lastmod>2026-09-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

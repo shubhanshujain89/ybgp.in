@@ -27,6 +27,97 @@ export const SERVICE_PAGES: ServicePageData[] = [
     relatedServiceIds: ['business-strategy', 'business-planning', 'business-growth-scaling']
   },
   {
+    slug: 'business-consultant-in-noida',
+    name: 'Business Consultant in Noida',
+    shortName: 'Business Consultant in Noida',
+    title: 'Business Consultant in Noida | YBGP',
+    description: 'Hire a business consultant in Noida to improve strategy, operations, growth planning and execution with YBGP.',
+    intro: 'A business consultant in Noida should do more than offer advice. YBGP works with founders and growing businesses to translate market opportunity into a practical roadmap and an execution plan that fits the real pace of the business.',
+    sections: [
+      { heading: 'Clear strategy for local business growth', paragraphs: ['We help you identify the business opportunities that matter most, decide where to focus and turn uncertainty into a workable growth plan.'] },
+      { heading: 'Operational support that is easier to execute', paragraphs: ['From business planning and positioning to growth systems and digital execution, we help make sure good strategy becomes consistent action in the business.'] }
+    ],
+    relatedServiceIds: ['business-planning', 'business-strategy', 'business-growth-scaling']
+  },
+  {
+    slug: 'startup-consultant-delhi-ncr',
+    name: 'Startup Consultant in Delhi NCR',
+    shortName: 'Startup Consultant in Delhi NCR',
+    title: 'Startup Consultant in Delhi NCR | YBGP',
+    description: 'YBGP is a startup consultant in Delhi NCR helping founders improve strategy, brand, digital execution and growth planning.',
+    intro: 'Startup teams need practical support, not generic theory. YBGP helps founders in Delhi NCR create stronger business models, clearer messaging, more disciplined planning and a growth engine they can actually execute.',
+    sections: [
+      { heading: 'Build a startup foundation that can scale', paragraphs: ['We shape strategy and execution around customer needs, product clarity and business viability so the startup can grow with less friction.'] },
+      { heading: 'Better decisions before growth gets expensive', paragraphs: ['Whether the issue is business planning, positioning, brand clarity or digital setup, YBGP works on the bottlenecks that most directly affect traction and scale.'] }
+    ],
+    relatedServiceIds: ['business-strategy', 'website-app-development', 'business-growth-scaling']
+  },
+  {
+    slug: 'website-development-company-gurugram',
+    name: 'Website Development Company in Gurugram',
+    shortName: 'Website Development Company in Gurugram',
+    title: 'Website Development Company in Gurugram | YBGP',
+    description: 'YBGP builds fast, credible websites for businesses in Gurugram that need better visibility, stronger conversion and a sharper digital presence.',
+    intro: 'A website is not just a digital brochure. For businesses in Gurugram, it should communicate the offer clearly, guide inquiries and support growth. YBGP creates business-first websites designed to convert attention into opportunity.',
+    sections: [
+      { heading: 'Websites designed around business outcomes', paragraphs: ['We structure the digital experience to match how customers research, compare and decide so the site becomes a practical conversion tool, not just a placeholder.'] },
+      { heading: 'A digital presence built for speed and trust', paragraphs: ['From messaging to layout and execution, we build websites that reflect the professionalism of your business and leave room for future growth.'] }
+    ],
+    relatedServiceIds: ['branding-digital-marketing', 'business-strategy', 'website-app-development']
+  },
+  {
+    slug: 'digital-marketing-agency-ghaziabad',
+    name: 'Digital Marketing Agency in Ghaziabad',
+    shortName: 'Digital Marketing Agency in Ghaziabad',
+    title: 'Digital Marketing Agency in Ghaziabad | YBGP',
+    description: 'YBGP helps businesses in Ghaziabad build a stronger digital marketing foundation with brand clarity, better positioning and practical growth activities.',
+    intro: 'Digital marketing works best when the strategy behind it is clear. YBGP helps businesses in Ghaziabad make sense of brand positioning, audience priorities and demand generation so marketing supports real commercial objectives.',
+    sections: [
+      { heading: 'Marketing with stronger commercial focus', paragraphs: ['We connect brand and content decisions to customer needs and growth goals so the business makes better use of attention, traffic and conversion opportunities.'] },
+      { heading: 'A clearer roadmap for digital growth', paragraphs: ['Whether the need is positioning, content strategy, digital visibility or demand generation, we help create a more disciplined and more effective next step.'] }
+    ],
+    relatedServiceIds: ['branding-digital-marketing', 'business-growth-scaling', 'website-app-development']
+  },
+  {
+    slug: 'business-consultant-delhi',
+    name: 'Business Consultant in Delhi',
+    shortName: 'Business Consultant in Delhi',
+    title: 'Business Consultant in Delhi | YBGP',
+    description: 'YBGP helps Delhi-based founders and growing businesses build better plans, improve execution and create stronger revenue systems with practical consulting support.',
+    intro: 'If your business is based in Delhi and you want sharper direction, stronger operations, better digital presence, or more predictable growth, YBGP brings hands-on business consulting support tailored to real commercial pressure.',
+    sections: [
+      { heading: 'Strategy with practical business context', paragraphs: ['We look at your offer, market position and growth blockers to shape a clearer strategic direction and a sensible sequence of priorities.'] },
+      { heading: 'Execution support for faster business momentum', paragraphs: ['From business planning and website development to branding and growth systems, we help move the important work forward without the noise of generic advice.'] }
+    ],
+    relatedServiceIds: ['business-strategy', 'branding-digital-marketing', 'business-growth-scaling']
+  },
+  {
+    slug: 'business-consultant-gurugram',
+    name: 'Business Consultant in Gurugram',
+    shortName: 'Business Consultant in Gurugram',
+    title: 'Business Consultant in Gurugram | YBGP',
+    description: 'YBGP supports growing businesses in Gurugram with strategy, planning, digital presence, growth systems and practical execution support.',
+    intro: 'Gurugram businesses often need faster decisions, stronger positioning and clearer systems to keep momentum. YBGP helps founders turn market opportunity into a practical growth plan and execution rhythm.',
+    sections: [
+      { heading: 'A plan built around your actual growth stage', paragraphs: ['We focus on where your business is right now, what needs to improve next and which actions will unlock more traction without unnecessary complexity.'] },
+      { heading: 'Support for positioning, systems and conversion', paragraphs: ['Whether the need is business strategy, website development, branding or scale planning, we work across the practical levers that influence business performance.'] }
+    ],
+    relatedServiceIds: ['business-planning', 'website-app-development', 'business-growth-scaling']
+  },
+  {
+    slug: 'business-consultant-ghaziabad',
+    name: 'Business Consultant in Ghaziabad',
+    shortName: 'Business Consultant in Ghaziabad',
+    title: 'Business Consultant in Ghaziabad | YBGP',
+    description: 'YBGP helps business owners in Ghaziabad improve planning, digital visibility, brand clarity and overall business execution with practical support.',
+    intro: 'For businesses in Ghaziabad, the real challenge is often converting plans into consistent execution. YBGP helps founders and teams build a clearer business foundation, stronger digital presence and smarter growth decisions.',
+    sections: [
+      { heading: 'Clear direction for business growth', paragraphs: ['We help simplify the business model, sharpen the value proposition and identify what should be prioritized to create more growth without wasted effort.'] },
+      { heading: 'Practical business support from strategy to launch', paragraphs: ['We cover planning, compliance coordination, marketing positioning and digital execution so business owners can move forward with more confidence.'] }
+    ],
+    relatedServiceIds: ['business-strategy', 'registration-compliance', 'branding-digital-marketing']
+  },
+  {
     slug: 'business-strategy-consulting',
     name: 'Business Strategy Consulting',
     shortName: 'Business Strategy',

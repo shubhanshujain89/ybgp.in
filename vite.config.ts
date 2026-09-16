@@ -42,6 +42,22 @@ export default defineConfig(() => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    build: {
+      target: 'es2020',
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules')) {
+              if (id.includes('motion')) return 'motion-vendor';
+              if (id.includes('lucide-react')) return 'icon-vendor';
+              if (id.includes('react')) return 'react-vendor';
+              return 'vendor';
+            }
+          },
+        },
+      },
+    },
     server: {
       // HMR can be disabled in constrained development environments.
       hmr: process.env.DISABLE_HMR !== 'true',
