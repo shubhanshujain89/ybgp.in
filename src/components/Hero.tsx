@@ -65,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultationModal }) => {
               </button>
 
               <a
-                href="#services"
+                href="/services/"
                 className="bg-white hover:bg-gray-50 border border-[#E0E0E0] text-[#0E2B22] px-7 py-3.5 rounded-full font-semibold text-sm sm:text-base transition-all duration-200 shadow-sm hover:shadow"
               >
                 {SITE_DATA.hero.secondaryCta}
@@ -73,8 +73,52 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultationModal }) => {
             </motion.div>
           </div>
 
-          {/* Right Column: Floating Brand Card */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          {/* Right Column: Offer Card + Floating Brand Card */}
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-end gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35 }}
+              className="w-full max-w-[620px] rounded-[32px] border border-[#E7E7E7] bg-[#F3F3F3] p-5 sm:p-6 lg:p-8 shadow-[0_22px_48px_rgba(14,43,34,0.08)]"
+            >
+              <div className="mb-5">
+                <p className="text-[0.72rem] sm:text-[0.8rem] font-semibold uppercase tracking-[0.28em] text-[#C89B2B]">
+                  LIMITED-TIME OFFER
+                </p>
+              </div>
+
+              <div className="flex flex-col xl:flex-row xl:items-end xl:justify-between gap-6">
+                <h3 className="text-[1.7rem] sm:text-[2.6rem] xl:text-[3.8rem] font-bold leading-[0.82] text-[#0E2B22] font-heading tracking-[-0.08em]">
+                  Get Your<br />Business<br />Website<br />Today
+                </h3>
+
+                <div className="w-full max-w-[250px] rounded-[26px] bg-[#0E2B22] px-4 py-4 text-white shadow-lg">
+                  <p className="text-[0.48rem] sm:text-[0.6rem] uppercase tracking-[0.22em] text-[#D8CBA4] text-center xl:text-left">
+                    NOW AT JUST
+                  </p>
+                  <div className="mt-2 flex items-center justify-center xl:justify-start gap-3">
+                    <span className="text-[0.72rem] sm:text-[0.9rem] font-semibold text-white/35 line-through decoration-[3px] decoration-red-500">
+                      ₹14,999
+                    </span>
+                    <span className="text-[1.45rem] sm:text-[2rem] font-semibold text-[#C89B2B] leading-none">
+                      ₹4,999
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-7">
+                <a
+                  href="https://wa.me/919953270270?text=Hi%2C%20I%20visited%20ybgp.in%20and%20I%27m%20interested%20in%20getting%20a%20website%20designed%20for%20my%20business.%20I%27d%20like%20to%20know%20more%20about%20the%20%E2%82%B94%2C999%20offer."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full sm:w-auto items-center justify-center bg-[#C89B2B] hover:bg-[#D5AA3E] text-[#0E2B22] px-8 py-4 rounded-full font-bold text-lg sm:text-xl transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer"
+                >
+                  Get Your Website Now →
+                </a>
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}

@@ -57,7 +57,7 @@ export const SITE_DATA = {
   location: "Noida, Uttar Pradesh",
   
   whatsappPrefilledMessage: "Hello Shubhanshu,\nI visited www.ybgp.in and would like to discuss my business.",
-  googleFormUrl: "https://docs.google.com/forms/",
+  googleFormUrl: "https://forms.gle/wu4rTVvKAtfj1YGk8",
   
   hero: {
     eyebrow: "YOUR BUSINESS GROWTH PARTNER",
