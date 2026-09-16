@@ -96,13 +96,6 @@ export const setPageMetadata = (page?: ServicePageData | SitePageData) => {
       name: SITE_DATA.owner,
       jobTitle: SITE_DATA.ownerTitle
     },
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Noida',
-      addressLocality: 'Noida',
-      addressRegion: 'Uttar Pradesh',
-      addressCountry: 'IN'
-    },
     areaServed: ['Noida', 'Delhi NCR', 'India'],
     sameAs: [SITE_DATA.instagramUrl, SITE_DATA.linkedinUrl],
     description: description
@@ -123,7 +116,6 @@ export const setPageMetadata = (page?: ServicePageData | SitePageData) => {
         '@type': 'ProfessionalService',
         name: page.name,
         description,
-        url,
         provider: {
           '@type': ['Organization', 'ProfessionalService'],
           name: SITE_DATA.fullName,
@@ -150,19 +142,8 @@ export const setPageMetadata = (page?: ServicePageData | SitePageData) => {
         '@type': 'WebSite',
         name: SITE_DATA.fullName,
         url: SITE_URL,
-        description,
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: `${SITE_URL}?q={search_term_string}`,
-          'query-input': 'required name=search_term_string'
-        }
-      }, {
-        '@context': 'https://schema.org',
-        '@type': 'LocalBusiness',
-        ...baseOrganizationSchema,
-        priceRange: '₹₹',
-        openingHours: 'Mo-Sa 09:00-18:00'
-      }, {
+        description
+      }, baseOrganizationSchema, {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: faqList

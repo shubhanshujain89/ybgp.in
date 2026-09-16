@@ -4,7 +4,7 @@ import { Hero } from './components/Hero';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { SITE_DATA } from './data/siteData';
-import { getServicePage } from './data/servicePages';
+import { getServicePage, SECTION_ROUTES } from './data/servicePages';
 import { setPageMetadata } from './seo';
 
 const About = lazy(() => import('./components/About').then((module) => ({ default: module.About })));
@@ -19,29 +19,7 @@ export default function App() {
   const routeSlug = window.location.pathname.replace(/^\/+|\/+$/g, '');
   const servicePage = getServicePage(routeSlug);
   const isHome = routeSlug === '' || routeSlug === 'index.html';
-  const sectionRoutes = {
-    about: {
-      title: 'About YBGP | Your Business Growth Partner',
-      description: 'Learn how YBGP helps entrepreneurs and growing businesses turn ideas into practical strategy, execution and sustainable growth.'
-    },
-    services: {
-      title: 'Business Consulting Services | YBGP',
-      description: 'Explore YBGP services for business strategy, planning, compliance, website development, branding, marketing and growth.'
-    },
-    process: {
-      title: 'Our Business Growth Process | YBGP',
-      description: 'See how YBGP guides businesses from idea and planning through execution, growth and scale.'
-    },
-    contact: {
-      title: 'Contact YBGP | Business Growth Consultant',
-      description: 'Contact Shubhanshu Jain at YBGP to discuss business strategy, planning, execution and growth support.'
-    },
-    'why-choose-us': {
-      title: 'Why Choose YBGP | Business Growth Partner',
-      description: 'See why founders choose YBGP for execution-focused business strategy, practical support and long-term growth partnership.'
-    }
-  } as const;
-  const sectionPage = sectionRoutes[routeSlug as keyof typeof sectionRoutes];
+  const sectionPage = SECTION_ROUTES[routeSlug as keyof typeof SECTION_ROUTES];
 
   useEffect(() => {
     if (servicePage || sectionPage || isHome) {
@@ -69,7 +47,7 @@ export default function App() {
 
     return (
       <Suspense fallback={<div className="min-h-screen bg-white" /> }>
-        <SectionPage slug={routeSlug as keyof typeof sectionRoutes} title={sectionPage.title} description={sectionPage.description} onOpenConsultationModal={handleOpenConsultation}>
+        <SectionPage slug={routeSlug as keyof typeof SECTION_ROUTES} title={sectionPage.title} description={sectionPage.description} onOpenConsultationModal={handleOpenConsultation}>
           {routeSlug === 'about' && <About />}
           {routeSlug === 'services' && <Services />}
           {routeSlug === 'process' && <Process />}

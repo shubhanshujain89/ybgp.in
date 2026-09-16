@@ -2,35 +2,57 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import fs from 'node:fs/promises';
 import path from 'path';
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 
-const seoRouteSlugs = [
-  'business-consultant-noida',
-  'business-strategy-consulting',
-  'business-planning',
-  'business-registration-compliance',
-  'website-app-development',
-  'branding-digital-marketing',
-  'business-growth-scaling',
-  'about',
-  'services',
-  'process',
-  'contact',
-  'why-choose-us',
-];
+import { ROUTE_METADATA, ROUTE_SLUGS } from './src/data/servicePages';
+
+const escapeHtml = (value: string) => value
+  .replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#39;');
 
 const generateSeoRouteEntrypoints = () => ({
   name: 'generate-seo-route-entrypoints',
-  async writeBundle(options: {dir?: string}) {
+  async writeBundle(options: { dir?: string }) {
     const outputDirectory = options.dir ?? path.resolve(__dirname, 'dist');
     const indexPath = path.join(outputDirectory, 'index.html');
-
     await fs.access(indexPath);
-    await Promise.all(seoRouteSlugs.map(async (slug) => {
-      const routeDirectory = path.join(outputDirectory, slug);
-      await fs.mkdir(routeDirectory, {recursive: true});
-      await fs.copyFile(indexPath, path.join(routeDirectory, 'index.html'));
-    }));
+
+    const buildHtmlForRoute = (html: string, slug: string) => {
+      const routeMeta = ROUTE_METADATA[slug as keyof typeof ROUTE_METADATA] ?? ROUTE_METADATA.home;
+      const url = slug === 'home' ? 'https://www.ybgp.in/' : `https://www.ybgp.in/${slug}/`;
+      const title = escapeHtml(routeMeta.title);
+      const description = escapeHtml(routeMeta.description);
+
+      return html
+        .replace(/<title>.*?<\/title>/is, `<title>${title}</title>`)
+        .replace(/<meta\s+name="description"[^>]*>/i, `<meta name="description" content="${description}" />`)
+        .replace(/<meta\s+property="og:title"[^>]*>/i, `<meta property="og:title" content="${title}" />`)
+        .replace(/<meta\s+property="og:description"[^>]*>/i, `<meta property="og:description" content="${description}" />`)
+        .replace(/<meta\s+property="og:url"[^>]*>/i, `<meta property="og:url" content="${url}" />`)
+        .replace(/<meta\s+name="twitter:title"[^>]*>/i, `<meta name="twitter:title" content="${title}" />`)
+        .replace(/<meta\s+name="twitter:description"[^>]*>/i, `<meta name="twitter:description" content="${description}" />`)
+        .replace(/<meta\s+name="twitter:url"[^>]*>/i, `<meta name="twitter:url" content="${url}" />`)
+        .replace(/<link\s+rel="canonical"[^>]*>/i, `<link rel="canonical" href="${url}" />`);
+    };
+
+    const baseIndex = await fs.readFile(indexPath, 'utf8');
+    const homeHtml = buildHtmlForRoute(baseIndex, 'home');
+    await fs.writeFile(indexPath, homeHtml);
+
+    await Promise.all(
+      ROUTE_SLUGS.filter((slug) => slug !== 'home').map(async (slug) => {
+        const routeDirectory = path.join(outputDirectory, slug);
+        await fs.mkdir(routeDirectory, { recursive: true });
+        const routeHtml = buildHtmlForRoute(baseIndex, slug);
+        await fs.writeFile(path.join(routeDirectory, 'index.html'), routeHtml);
+      })
+    );
+
+    const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://www.ybgp.in/</loc>\n    <lastmod>2026-09-16</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n${ROUTE_SLUGS.filter((slug) => slug !== 'home').map((slug) => `  <url>\n    <loc>https://www.ybgp.in/${slug}/</loc>\n    <lastmod>2026-09-16</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n  </url>`).join('\n')}\n</urlset>\n`;
+    await fs.writeFile(path.join(outputDirectory, 'sitemap.xml'), sitemapXml);
   },
 });
 
@@ -59,9 +81,7 @@ export default defineConfig(() => {
       },
     },
     server: {
-      // HMR can be disabled in constrained development environments.
       hmr: process.env.DISABLE_HMR !== 'true',
-      // Disable file watching with HMR when explicitly requested.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
     },
   };

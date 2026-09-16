@@ -14,14 +14,15 @@ import {
   Ruler,
   Rocket,
   BarChart2,
-  Layers
+  Layers,
+  type LucideIcon
 } from 'lucide-react';
 
 export interface ServiceItem {
   id: string;
   title: string;
   description: string;
-  icon: any;
+  icon: LucideIcon;
 }
 
 export interface ProcessStep {
@@ -29,13 +30,13 @@ export interface ProcessStep {
   stepNum: string;
   title: string;
   description: string;
-  icon: any;
+  icon: LucideIcon;
 }
 
 export interface WhyChooseUsItem {
   title: string;
   description: string;
-  icon: any;
+  icon: LucideIcon;
 }
 
 export const SITE_DATA = {
