@@ -18,7 +18,7 @@ RewriteRule ^ - [L]
 
 # Serve the SPA shell for the published clean routes.
 RewriteRule ^$ index.html [L]
-RewriteRule ^(?:business-consultant-noida|business-strategy-consulting|business-planning|business-registration-compliance|website-app-development|branding-digital-marketing|business-growth-scaling)/?$ index.html [L]
+RewriteRule ^(?:business-website|business-consultant-noida|business-strategy-consulting|business-planning|business-registration-compliance|website-app-development|branding-digital-marketing|business-growth-scaling)/?$ index.html [L]
 
 # Preserve a real 404 response for unknown paths while using the custom document.
 ErrorDocument 404 /404.html

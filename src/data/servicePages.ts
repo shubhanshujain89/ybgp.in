@@ -13,6 +13,10 @@ export interface ServicePageData {
 }
 
 export const SECTION_ROUTES = {
+  'business-website': {
+    title: 'Business Website at ₹4,999 | YBGP',
+    description: 'Get a professional, mobile-ready business website with WhatsApp integration, SEO-ready structure and fast loading for ₹4,999.'
+  },
   about: {
     title: 'About YBGP | Your Business Growth Partner',
     description: 'Learn how YBGP helps entrepreneurs and growing businesses turn ideas into practical strategy, execution and sustainable growth.'

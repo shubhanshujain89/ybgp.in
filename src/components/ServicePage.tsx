@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { SITE_DATA } from '../data/siteData';
 import { getServicePage, SERVICE_PAGES } from '../data/servicePages';
-import { setPageMetadata } from '../seo';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { WhatsAppButton } from './WhatsAppButton';
@@ -12,11 +11,6 @@ interface ServicePageProps {
 }
 
 export const ServicePage: React.FC<ServicePageProps> = ({ page }) => {
-  useEffect(() => {
-    setPageMetadata(page);
-    window.scrollTo(0, 0);
-  }, [page]);
-
   const relatedPages = page.relatedServiceIds
     .map((id) => SERVICE_PAGES.find((candidate) => candidate.slug !== page.slug && candidate.relatedServiceIds.includes(id)))
     .filter((candidate, index, pages) => candidate && pages.indexOf(candidate) === index)

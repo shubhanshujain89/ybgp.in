@@ -5,13 +5,13 @@ import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { SITE_DATA } from './data/siteData';
 import { getServicePage, SECTION_ROUTES } from './data/servicePages';
-import { setPageMetadata } from './seo';
 
 const About = lazy(() => import('./components/About').then((module) => ({ default: module.About })));
 const Services = lazy(() => import('./components/Services').then((module) => ({ default: module.Services })));
 const Process = lazy(() => import('./components/Process').then((module) => ({ default: module.Process })));
 const WhyChooseUs = lazy(() => import('./components/WhyChooseUs').then((module) => ({ default: module.WhyChooseUs })));
 const Contact = lazy(() => import('./components/Contact').then((module) => ({ default: module.Contact })));
+const BusinessWebsitePage = lazy(() => import('./components/BusinessWebsitePage').then((module) => ({ default: module.BusinessWebsitePage })));
 const ServicePage = lazy(() => import('./components/ServicePage').then((module) => ({ default: module.ServicePage })));
 const SectionPage = lazy(() => import('./components/SectionPage').then((module) => ({ default: module.SectionPage })));
 
@@ -22,10 +22,7 @@ export default function App() {
   const sectionPage = SECTION_ROUTES[routeSlug as keyof typeof SECTION_ROUTES];
 
   useEffect(() => {
-    if (servicePage || sectionPage || isHome) {
-      if (isHome) setPageMetadata();
-      return;
-    }
+    if (servicePage || sectionPage || isHome) return;
 
     document.title = 'Page Not Found | YBGP';
     document.head.querySelector('meta[name="robots"]')?.setAttribute('content', 'noindex');
@@ -47,7 +44,8 @@ export default function App() {
 
     return (
       <Suspense fallback={<div className="min-h-screen bg-white" /> }>
-        <SectionPage slug={routeSlug as keyof typeof SECTION_ROUTES} title={sectionPage.title} description={sectionPage.description} onOpenConsultationModal={handleOpenConsultation}>
+        <SectionPage onOpenConsultationModal={handleOpenConsultation}>
+          {routeSlug === 'business-website' && <BusinessWebsitePage />}
           {routeSlug === 'about' && <About />}
           {routeSlug === 'services' && <Services />}
           {routeSlug === 'process' && <Process />}

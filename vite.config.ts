@@ -51,7 +51,8 @@ const generateSeoRouteEntrypoints = () => ({
       })
     );
 
-    const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://www.ybgp.in/</loc>\n    <lastmod>2026-09-16</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n${ROUTE_SLUGS.filter((slug) => slug !== 'home').map((slug) => `  <url>\n    <loc>https://www.ybgp.in/${slug}/</loc>\n    <lastmod>2026-09-16</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n  </url>`).join('\n')}\n</urlset>\n`;
+    const lastModified = new Date().toISOString().slice(0, 10);
+    const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://www.ybgp.in/</loc>\n    <lastmod>${lastModified}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n${ROUTE_SLUGS.filter((slug) => slug !== 'home').map((slug) => `  <url>\n    <loc>https://www.ybgp.in/${slug}/</loc>\n    <lastmod>${lastModified}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.9</priority>\n  </url>`).join('\n')}\n</urlset>\n`;
     await fs.writeFile(path.join(outputDirectory, 'sitemap.xml'), sitemapXml);
   },
 });
